@@ -14,7 +14,14 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+}
+
+.App {
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .header {
@@ -30,12 +37,13 @@ body {
 
 .header__img {
     width: 8.3rem;
-    max-height: 4rem;
+    max-height: 4.8rem;
 }
 
 .scoreboard {
     display: flex;
     flex-direction: column;
+    align-items: center;
     background: linear-gradient(0deg, #F3F3F3 0%, #FFFFFF 100%);
     padding: 1rem 2.4rem;
     border-radius: .4rem;
@@ -64,7 +72,6 @@ body {
     height: 28rem;
     position: relative;
     margin: 0 auto;
-    margin-top: 6rem;
 }
 
 .picker__img-wrapper {
@@ -96,6 +103,7 @@ body {
     display: grid;
     place-items: center;
     border-bottom: 7px solid rgba(0, 0, 0, 0.196706);
+    cursor: pointer;
 }
 
 .choice__inner {
@@ -104,30 +112,97 @@ body {
     border-radius: 50%;
     background: linear-gradient(0deg, #F3F3F3 0%, #DADADA 98.34%);
     border-top: 5px solid #BABFD4;
+    display: grid;
+    place-items: center;
 }
 
-.--paper {
-    background: linear-gradient(to top ,hsl(230, 89%, 62%),hsl(230, 89%, 65%)
-    );
-    
+.rules-btn {
+    font-size: 1.6rem;
+    line-height: 1.2em;
+    letter-spacing: .25rem;
+    color: #fff;
+    padding: 1rem 3.75rem;
+    background: none;
+    border-radius: .8rem;
+    border: none;
+    border: 1px solid #fff;
+    margin-bottom: 5.6rem;
+    cursor: pointer;
 }
 
-.--paper-inner {
-    
+.rules-btn:hover {
+    background: linear-gradient(0deg, #F3F3F3 0%, #FFFFFF 100%);
 }
 
-.--scissors {
-    background: linear-gradient(to top, hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+.game {
+    /* background-image: url('./images/bg-triangle.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; */
+    width: 90%;
+    height: 28rem;
+    position: relative;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    /* background-color: green; */
 }
 
-.--scissors-inner {
-
+.game__column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 45%;
 }
 
-.--rock {
-    background: linear-gradient(to top, hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+.absolute {
+    position: absolute;
 }
 
-.--rock-inner {
+.game__text {
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 2.1em;
+    letter-spacing: .12em;
+    text-shadow: 0px 3px 3px rgba(0, 0, 0, 0.196706);
+    margin-top: 1.7rem;
+    text-transform: uppercase;
+}
 
+.loading {
+    margin-top: 2.3rem;
+    margin-bottom: 1rem ;
+    height: 10rem;
+    width: 10rem;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.results {
+    max-width: 22rem;
+    margin: 0 auto;
+    margin-top: 3rem;
+}
+
+.results__text {
+    color: #fff;
+    font-weight: 700;
+    font-size: 5.6rem;
+    line-height: 1.2em;
+    text-shadow: 0px 3px 3px rgba(0, 0, 0, 0.196706);
+    text-transform: uppercase;
+}
+
+.results__button {
+    width: 100%;
+    font-size: 1.6rem;
+    line-height: 1.2em;
+    letter-spacing: .16em;
+    background: linear-gradient(0deg, #F3F3F3 0%, #FFFFFF 100%);
+    border-radius: .8rem;
+    color: hsl(229, 25%, 31%);
+    padding: .8em 0;
+    margin-top: 1.6rem;
 }
