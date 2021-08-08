@@ -1,8 +1,8 @@
 import React from 'react'
 
-const RulesButton = () => {
+const RulesButton = ({handleModal}) => {
     return (
-        <button className="rules-btn">
+        <button className="rules-btn" onClick={handleModal} >
             Rules
         </button>
     )

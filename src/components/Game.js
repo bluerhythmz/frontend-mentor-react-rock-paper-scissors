@@ -8,7 +8,7 @@ const Game = ({ pick, house, gameOver, resultText, handleRestart }) => {
       <>
     <section className="game">
       <div className="game__column">
-        <Choice img={pick.img} background={pick.background} />
+        <Choice img={pick.img} background={pick.background} gameOver={gameOver} />
         <div className="game__text">You Picked</div>
       </div>
       <div className="game__column">
@@ -17,6 +17,7 @@ const Game = ({ pick, house, gameOver, resultText, handleRestart }) => {
             img={house.img}
             background={house.background}
             absolute="absolute"
+            gameOver={gameOver}
           />
         
         <div className="loading"></div>

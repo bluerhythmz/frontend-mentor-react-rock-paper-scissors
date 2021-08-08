@@ -3,7 +3,7 @@ import triangle from "../images/bg-triangle.svg";
 import { rpsData } from "../data/Data";
 import Choice from "./Choice";
 
-const Picker = ({ handleResult, house, handleClick, pick, route, handleRestart }) => {
+const Picker = ({ handleClick}) => {
 
   return (
         <main className="picker">

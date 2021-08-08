@@ -2,6 +2,7 @@ import './App.css';
 import Header from './components/Header';
 import Picker from './components/Picker';
 import RulesButton from './components/RulesButton';
+import RulesModal from './components/RulesModal';
 import { useState, useEffect } from 'react'
 import { rpsData } from './data/Data';
 import Game from "./components/Game";
@@ -11,16 +12,18 @@ function App() {
   const [house, setHouse] = useState(null)
   const [pick, setPick] = useState(null);
   const [route, setRoute] = useState(null)
+  const [resultText, setResultText] = useState("");
+  const [gameOver, setGameOver] = useState(null);
+  const [clicked, setClicked] = useState(false)
  
-
-  useEffect(() => {
-    
+  /* useEffect(() => {
     if (pick && house) {
-      setPlayerRoute(pick.name, house.name)
-    }
-  }, [pick, house])
+    setPlayerRoute(pick.name, house.name)
+  }
+    
+  }, [pick, house]) */
   
-
+  
   const handleResult = (result) => {
     if (result === "win") {
       setWinCount(prev => prev + 1)
@@ -33,19 +36,10 @@ function App() {
     const obj = {name, img, background}
     let random = rpsData[Math.floor(Math.random() * 3)];
   setHouse(random);
-    setPick(prev => obj);
+    setPick(obj);
+    setPlayerRoute(obj.name, random.name)
   };
 
-  const setPlayerRoute = (pick, house) => {
-    const routes = [["rock", "paper", "scissors"], ["paper", "scissors", "rock"], ["scissors", "rock", "paper"]];
-
-  const playerRoute = routes.filter((route) => route[0] === pick);
-  
-  gameLogic(playerRoute, house)
-  }
-
-  const [resultText, setResultText] = useState("");
-  const [gameOver, setGameOver] = useState(null);
   const gameLogic = (route, house) => {
     setGameOver(false)
    console.log(route, house)
@@ -66,18 +60,29 @@ function App() {
     }
   };
 
+  const setPlayerRoute = (pick, house) => {
+    const routes = [["rock", "paper", "scissors"], ["paper", "scissors", "rock"], ["scissors", "rock", "paper"]]
+
+  const playerRoute = routes.filter((route) => route[0] === pick);
+  
+  gameLogic(playerRoute, house)
+  }
+
   const handleRestart = () => {
     setRoute(null)
     setPick(null)
+    setResultText("")
+  }
+
+  const handleModal = () => {
+    console.log("click")
+    setClicked(!clicked)
   }
   
-  
-  
-
   return (
     <div className="App">
       <Header winCount={winCount} />
-      { !pick ? <Picker handleResult={handleResult} handleClick={handleClick} house={house} route={route} pick={pick} handleRestart={handleRestart} />
+      { !pick ? <Picker  handleClick={handleClick} />
        : <Game
           gameOver={gameOver}
           resultText={resultText}
@@ -85,7 +90,8 @@ function App() {
           house={house}
           handleRestart={handleRestart}
         />}
-      <RulesButton />
+      <RulesButton handleModal={handleModal} />
+      <RulesModal clicked={clicked} handleModal={handleModal} />
     </div>
   );
 }
