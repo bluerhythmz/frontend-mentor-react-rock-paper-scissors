@@ -42,7 +42,6 @@ function App() {
 
   const gameLogic = (route, house) => {
     setGameOver(false)
-   console.log(route, house)
     switch (route[0].indexOf(house)) {
       case 1:
         setResultText("You Lose");
@@ -75,7 +74,6 @@ function App() {
   }
 
   const handleModal = () => {
-    console.log("click")
     setClicked(!clicked)
   }
   
