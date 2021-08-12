@@ -147,7 +147,6 @@ body {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    /* background-color: green; */
 }
 
 .game__column {
@@ -237,6 +236,11 @@ body {
 .modal__close {
     margin-bottom: 5.6rem;
     cursor: pointer;
+}
+
+.motion-div {
+    position: absolute;
+    left: 60%;
 }
 
 @media (min-width: 668px) {
@@ -452,7 +456,6 @@ body {
     .modal__close {
         margin-bottom: 0rem;
         margin-right: 3.2rem;
-        cursor: pointer;
         grid-column: 2/2;
         grid-row: 1 / 1;
         align-self: flex-end;
@@ -464,5 +467,11 @@ body {
         grid-column: 1/ span 2;
         align-self: center;
         justify-self: center;
+    }
+
+    .motion-div {
+        position: absolute;
+        top: 26%;
+        left: 70%;
     }
 }
